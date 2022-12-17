@@ -1,0 +1,112 @@
+[
+    {
+      "zh-name": "荃灣綫",
+      "en-name": "Tsuen Wan Line",
+      "color": "#ED1D24"
+    },
+    {
+      "zh-name": "觀塘綫",
+      "en-name": "Kwun Tong Line",
+      "color": "#00AB4E"
+    },
+    {
+      "zh-name": "港島綫",
+      "en-name": "Island Line",
+      "color": "#007DC5"
+    },
+    {
+      "zh-name": "將軍澳綫",
+      "en-name": "Tseung Kwan O Line",
+      "color": "#7D499D"
+    },
+    {
+      "zh-name": "東涌綫",
+      "en-name": "Tung Chung Line",
+      "color": "#F7943E"
+    },
+    {
+      "zh-name": "迪士尼綫",
+      "en-name": "Disneyland Line",
+      "color": "#F173AC"
+    },
+    {
+      "zh-name": "機場快綫",
+      "en-name": "Airport Express Line",
+      "color": "#00888A"
+    },
+    {
+      "zh-name": "東鐵綫",
+      "en-name": "East Rail Line",
+      "color": "#53B7E8"
+    },
+    {
+      "zh-name": "西鐵綫",
+      "en-name": "West Rail Line",
+      "color": "#A3238F"
+    },
+    {
+      "zh-name": "馬鞍山綫",
+      "en-name": "Ma On Shan Line",
+      "color": "#923011"
+    },
+    {
+      "zh-name": "屯馬綫",
+      "en-name": "Tuen Ma Line",
+      "color": "#923011"
+    },
+    {
+      "zh-name": "輕鐵",
+      "en-name": "Light Rail Line",
+      "color": "#D3A809"
+    },
+    {
+      "zh-name": "九廣東鐵",
+      "en-name": "Kcr East Line",
+      "color": "#005DA0"
+    },
+    {
+      "zh-name": "九廣西鐵",
+      "en-name": "Kcr West Line",
+      "color": "#AC2571"
+    },
+    {
+      "zh-name": "九廣馬鐵",
+      "en-name": "Kcr Ma On Shan Line",
+      "color": "#761E10"
+    },
+    {
+      "zh-name": "九廣輕鐵",
+      "en-name": "Kcr Light Line",
+      "color": "#FD722D"
+    },
+    {
+      "zh-name": "南港島綫",
+      "en-name": "South Island East Line",
+      "color": "#C1CD23"
+    },
+    {
+      "zh-name": "南港島綫西段",
+      "en-name": "South Island West Line",
+      "color": "#9182C2"
+    },
+    {
+      "zh-name": "北港島綫",
+      "en-name": "North Island Line",
+      "color": "#F7943E"
+    },
+    {
+      "zh-name": "北環綫",
+      "en-name": "Northern Link Line",
+      "color": "#E0027A"
+    },
+    {
+      "zh-name": "高速鐵路",
+      "en-name": "Express Rail Line",
+      "color": "#BBB0A3"
+    },
+    {
+      "zh-name": "東九龍綫",
+      "en-name": "East Kowloon Line",
+      "color": "#006633"
+    }
+  ]

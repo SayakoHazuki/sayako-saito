@@ -1,0 +1,157 @@
+[
+  {
+    "zh-name": "金鐘",
+    "en-name": "Admiralty",
+    "lines": ["東鐵綫", "荃灣綫", "港島綫", "南港島綫"]
+  },
+  { "zh-name": "會展", "en-name": "Exhibition Centre", "lines": ["東鐵綫"] },
+  { "zh-name": "紅磡", "en-name": "Hung Hom", "lines": ["東鐵綫", "屯馬綫"] },
+  { "zh-name": "旺角東", "en-name": "Mong Kok East", "lines": ["東鐵綫"] },
+  {
+    "zh-name": "九龍塘",
+    "en-name": "Kowloon Tong",
+    "lines": ["東鐵綫", "觀塘綫"]
+  },
+  { "zh-name": "大圍", "en-name": "Tai Wai", "lines": ["東鐵綫", "屯馬綫"] },
+  { "zh-name": "沙田", "en-name": "Shatin", "lines": ["東鐵綫"] },
+  { "zh-name": "火炭", "en-name": "Fo Tan", "lines": ["東鐵綫"] },
+  { "zh-name": "大學", "en-name": "University", "lines": ["東鐵綫"] },
+  { "zh-name": "大埔墟", "en-name": "Tai Po Market", "lines": ["東鐵綫"] },
+  { "zh-name": "太和", "en-name": "Tai Wo", "lines": ["東鐵綫"] },
+  { "zh-name": "粉嶺", "en-name": "Fanling", "lines": ["東鐵綫"] },
+  { "zh-name": "上水", "en-name": "Sheung Shui", "lines": ["東鐵綫"] },
+  { "zh-name": "落馬洲", "en-name": "Lok Ma Chau", "lines": ["東鐵綫"] },
+  { "zh-name": "馬場", "en-name": "Racecourse", "lines": ["東鐵綫"] },
+  { "zh-name": "羅湖", "en-name": "Lo Wu", "lines": ["東鐵綫"] },
+  { "zh-name": "黃埔", "en-name": "Whampoa", "lines": ["觀塘綫"] },
+  {
+    "zh-name": "何文田",
+    "en-name": "Ho Man Tin",
+    "lines": ["觀塘綫", "屯馬綫"]
+  },
+  {
+    "zh-name": "油麻地",
+    "en-name": "Yau Ma Tei",
+    "lines": ["觀塘綫", "荃灣綫"]
+  },
+  { "zh-name": "旺角", "en-name": "Mong Kok ", "lines": ["觀塘綫", "荃灣綫"] },
+  {
+    "zh-name": "太子",
+    "en-name": "Prince Edward",
+    "lines": ["觀塘綫", "荃灣綫"]
+  },
+  { "zh-name": "石硤尾", "en-name": "Shek Kip Mei", "lines": ["觀塘綫"] },
+  { "zh-name": "樂富", "en-name": "Lok Fu", "lines": ["觀塘綫"] },
+  { "zh-name": "黃大仙", "en-name": "Wong Tai Sin", "lines": ["觀塘綫"] },
+  {
+    "zh-name": "鑽石山",
+    "en-name": "Diamond Hill",
+    "lines": ["觀塘綫", "屯馬綫"]
+  },
+  { "zh-name": "彩虹", "en-name": "Choi Hung", "lines": ["觀塘綫"] },
+  { "zh-name": "九龍灣", "en-name": "Kowloon Bay", "lines": ["觀塘綫"] },
+  { "zh-name": "牛頭角", "en-name": "Ngau Tau Kok", "lines": ["觀塘綫"] },
+  { "zh-name": "觀塘", "en-name": "Kwun Tong", "lines": ["觀塘綫"] },
+  { "zh-name": "藍田", "en-name": "Lam Tin", "lines": ["觀塘綫"] },
+  { "zh-name": "油塘", "en-name": "Yau Tong", "lines": ["觀塘綫", "將軍澳綫"] },
+  {
+    "zh-name": "調景嶺",
+    "en-name": "Tiu Keng Leng",
+    "lines": ["觀塘綫", "將軍澳綫"]
+  },
+  { "zh-name": "中環", "en-name": "Central", "lines": ["荃灣綫", "港島綫"] },
+  { "zh-name": "尖沙咀", "en-name": "Tsim Sha Tsui", "lines": ["荃灣綫"] },
+  { "zh-name": "佐敦", "en-name": "Jordan", "lines": ["荃灣綫"] },
+  { "zh-name": "深水埗", "en-name": "Sham Shui Po", "lines": ["荃灣綫"] },
+  { "zh-name": "長沙灣", "en-name": "Cheung Sha Wan", "lines": ["荃灣綫"] },
+  { "zh-name": "茘枝角", "en-name": "Lai Chi Kok", "lines": ["荃灣綫"] },
+  { "zh-name": "美孚", "en-name": "Mei Foo", "lines": ["荃灣綫", "屯馬綫"] },
+  { "zh-name": "茘景", "en-name": "Lai King", "lines": ["荃灣綫", "東涌綫"] },
+  { "zh-name": "葵芳", "en-name": "Kwai Fong", "lines": ["荃灣綫"] },
+  { "zh-name": "葵興", "en-name": "Kwai Hing", "lines": ["荃灣綫"] },
+  { "zh-name": "大窩口", "en-name": "Tai Wo Hau", "lines": ["荃灣綫"] },
+  { "zh-name": "荃灣", "en-name": "Tsuen Wan", "lines": ["荃灣綫"] },
+  { "zh-name": "堅尼地城", "en-name": "Kennedy Town", "lines": ["港島綫"] },
+  {
+    "zh-name": "香港大學",
+    "en-name": "University of Hong Kong",
+    "lines": ["港島綫"]
+  },
+  { "zh-name": "西營盤", "en-name": "Sai Ying Pun", "lines": ["港島綫"] },
+  { "zh-name": "上環", "en-name": "Sheung Wan", "lines": ["港島綫"] },
+  { "zh-name": "灣仔", "en-name": "Wan Chai", "lines": ["港島綫"] },
+  { "zh-name": "銅鑼灣", "en-name": "Causeway Bay", "lines": ["港島綫"] },
+  { "zh-name": "天后", "en-name": "Tin Hau", "lines": ["港島綫"] },
+  { "zh-name": "炮台山", "en-name": "Fortress Hill", "lines": ["港島綫"] },
+  {
+    "zh-name": "北角",
+    "en-name": "North Point",
+    "lines": ["港島綫", "將軍澳綫"]
+  },
+  {
+    "zh-name": "鰂魚涌",
+    "en-name": "Quarry Bay",
+    "lines": ["港島綫", "將軍澳綫"]
+  },
+  { "zh-name": "太古", "en-name": "Taikoo", "lines": ["港島綫"] },
+  { "zh-name": "西灣河", "en-name": "West Wan Ho", "lines": ["港島綫"] },
+  { "zh-name": "筲箕灣", "en-name": "Shau Kei Wan", "lines": ["港島綫"] },
+  { "zh-name": "杏花邨", "en-name": "Hang Fa Tsuen", "lines": ["港島綫"] },
+  { "zh-name": "柴灣", "en-name": "Chai Wan", "lines": ["港島綫"] },
+  {
+    "zh-name": "香港",
+    "en-name": "Hong Kong",
+    "lines": ["東涌綫", "機場快綫"]
+  },
+  { "zh-name": "九龍", "en-name": "Kowloon", "lines": ["東涌綫", "機場快綫"] },
+  { "zh-name": "奧運", "en-name": "Olympics", "lines": ["東涌綫"] },
+  { "zh-name": "南昌", "en-name": "Nam Cheong", "lines": ["東涌綫", "屯馬綫"] },
+  { "zh-name": "青衣", "en-name": "Tsing Yi", "lines": ["東涌綫", "機場快綫"] },
+  {
+    "zh-name": "欣澳",
+    "en-name": "Sunny Bay",
+    "lines": ["東涌綫", "迪士尼綫"]
+  },
+  { "zh-name": "東涌", "en-name": "Tung Chung", "lines": ["東涌綫"] },
+  { "zh-name": "機場", "en-name": "Airport", "lines": ["機場快綫"] },
+  { "zh-name": "博覽館", "en-name": "AsiaWorld-Expo", "lines": ["機場快綫"] },
+  { "zh-name": "將軍澳", "en-name": "Tseung Kwan O", "lines": ["將軍澳綫"] },
+  { "zh-name": "坑口", "en-name": "Hang Hau", "lines": ["將軍澳綫"] },
+  { "zh-name": "寶琳", "en-name": "Po Lam", "lines": ["將軍澳綫"] },
+  { "zh-name": "康城", "en-name": "Cannes Park", "lines": ["將軍澳綫"] },
+  { "zh-name": "烏溪沙", "en-name": "Wu Kai Sha", "lines": ["屯馬綫"] },
+  { "zh-name": "馬鞍山", "en-name": "Ma On Shan", "lines": ["屯馬綫"] },
+  { "zh-name": "恆安", "en-name": "Heng On", "lines": ["屯馬綫"] },
+  { "zh-name": "大水坑", "en-name": "Tai Shui Hang", "lines": ["屯馬綫"] },
+  { "zh-name": "石門", "en-name": "Shek Mun", "lines": ["屯馬綫"] },
+  { "zh-name": "第一城", "en-name": "City One", "lines": ["屯馬綫"] },
+  { "zh-name": "沙田圍", "en-name": "Sha Tin Wai", "lines": ["屯馬綫"] },
+  { "zh-name": "車公廟", "en-name": "Che Kung Temple", "lines": ["屯馬綫"] },
+  { "zh-name": "顯徑", "en-name": "Hin Keng", "lines": ["屯馬綫"] },
+  { "zh-name": "啟德", "en-name": "Kai Tak", "lines": ["屯馬綫"] },
+  { "zh-name": "宋皇臺", "en-name": "Sung Wong Toi", "lines": ["屯馬綫"] },
+  { "zh-name": "土瓜灣", "en-name": "To Kwa Wan", "lines": ["屯馬綫"] },
+  {
+    "zh-name": "尖東",
+    "en-name": "Tsim Sha Tsui East",
+    "lines": ["屯馬綫"]
+  },
+  { "zh-name": "柯士甸", "en-name": "Austin", "lines": ["屯馬綫"] },
+  { "zh-name": "荃灣西", "en-name": "Tsuen Wan West", "lines": ["屯馬綫"] },
+  { "zh-name": "錦上路", "en-name": "Kam Sheung Road", "lines": ["屯馬綫"] },
+  { "zh-name": "元朗", "en-name": "Yuen Long", "lines": ["屯馬綫"] },
+  { "zh-name": "朗屏", "en-name": "Long Ping", "lines": ["屯馬綫"] },
+  { "zh-name": "天水圍", "en-name": "Tin Shui Wai", "lines": ["屯馬綫"] },
+  { "zh-name": "兆康", "en-name": "Siu Hong", "lines": ["屯馬綫"] },
+  { "zh-name": "屯門", "en-name": "Tuen Mun", "lines": ["屯馬綫"] },
+  { "zh-name": "迪士尼", "en-name": "Disneyland", "lines": ["迪士尼綫"] },
+  { "zh-name": "海洋公園", "en-name": "Ocean Park", "lines": ["南港島綫"] },
+  { "zh-name": "黃竹坑", "en-name": "Wong Chuk Hang", "lines": ["南港島綫"] },
+  { "zh-name": "利東", "en-name": "Lei Tung", "lines": ["南港島綫"] },
+  { "zh-name": "海怡半島", "en-name": "South Horizons", "lines": ["南港島綫"] },
+  {
+    "zh-name": "香港西九龍",
+    "en-name": "Hong Kong West Kowloon",
+    "lines": ["高速鐵路"]
+  }
+]
