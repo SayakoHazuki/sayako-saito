@@ -34,12 +34,11 @@ export default class RandomMTR extends React.Component<
     return (
       <div>
         <h1>Random MTR Station Generator</h1>
-        <p>Click the button to generate a random MTR station.</p>
+        <p>Currently betaaaaaaa :D</p>
         <button onClick={this.displayNewStation}>Generate</button>
 
         <Card>
           <div>
-            Hello
             {this.state.stationDisp}
           </div>
         </Card>
@@ -55,7 +54,7 @@ export default class RandomMTR extends React.Component<
         <div>
           <h2>{station.zh_name}</h2>
           <p>{station.en_name}</p>
-          <p>Lines: {getLinesElem(station.lines)}</p>
+          <div>Lines: {getLinesElem(station.lines)}</div>
         </div>
       ),
     });
@@ -80,7 +79,7 @@ function getLinesElem(lines: string[]) {
   // return element containing: a div of color, next to it the zh-name.
 
   const linesElem = lines.map((line) => {
-    const lineData = mtrLines.find((l) => l["en-name"] === line);
+    const lineData = mtrLines.find((l) => l["zh-name"] === line);
     return (
       <div>
         <div
@@ -95,4 +94,5 @@ function getLinesElem(lines: string[]) {
       </div>
     );
   });
+  return linesElem;
 }
