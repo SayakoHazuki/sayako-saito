@@ -69,6 +69,11 @@ const defaultFilters = {
         "火炭",
       ].includes(s.zh_name),
   },
+  noThemePark: {
+    description: "排除為主題樂園而設的地鐵站",
+    description2: "(海洋公園、迪士尼)",
+    apply: (s: MtrStation) => !["海洋公園", "迪士尼"].includes(s.zh_name),
+  }
 };
 
 interface MtrStation {
@@ -96,7 +101,7 @@ export default class RandomMTR extends React.Component<
       station: { zh_name: "", en_name: "", lines: [] },
       stationDisp: <div></div>,
       filteredStations: mtrStations,
-      enabledFilters: ["noAEL", "noPort", "noNear", "noShatinDist"],
+      enabledFilters: ["noAEL", "noPort", "noNear", "noShatinDist", "noThemePark"],
     };
   }
 
@@ -284,7 +289,7 @@ function getRandomMtrStation(stations_set: MtrStation[] = mtrStations) {
 
   const randomIndex = Math.floor(Math.random() * stations_set.length);
   const randomStation = stations_set[randomIndex];
-  console.log(stations_set.length);
+  // console.log(stations_set.length);
   return randomStation;
 }
 
