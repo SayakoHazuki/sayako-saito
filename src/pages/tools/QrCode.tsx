@@ -19,7 +19,6 @@ export default class QrCodeGen extends React.Component<
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
       const target = event.target;
       const value = target.value;
-      const name = target.name;
 
       this._handleInput(value);
     };
