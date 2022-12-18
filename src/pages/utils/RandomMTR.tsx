@@ -1,5 +1,10 @@
-import { Card } from "@mui/material";
+import { Card, Divider, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import * as React from "react";
+
+import "./RandomMTR.css";
+import "../../fonts/myriad.css";
 
 import mtrLines from "../../data/mtr-lines.json";
 
@@ -35,12 +40,10 @@ export default class RandomMTR extends React.Component<
       <div>
         <h1>Random MTR Station Generator</h1>
         <p>Currently betaaaaaaa :D</p>
-        <button onClick={this.displayNewStation}>Generate</button>
+        <button onClick={this.spin}>Generate</button>
 
         <Card>
-          <div>
-            {this.state.stationDisp}
-          </div>
+          <div>{this.state.stationDisp}</div>
         </Card>
       </div>
     );
@@ -51,12 +54,52 @@ export default class RandomMTR extends React.Component<
     this.setState({
       station: station,
       stationDisp: (
-        <div>
-          <h2>{station.zh_name}</h2>
-          <p>{station.en_name}</p>
-          <div>Lines: {getLinesElem(station.lines)}</div>
-        </div>
+        <Grid direction="column" container>
+          <Grid className="sb" item sx={{ marginTop: 2, marginBottom: 1 }}>
+            <Typography variant="h3" className="mtr-sung">
+              {station.zh_name}
+            </Typography>
+            <Typography variant="h4" className="mtr-eng">
+              {station.en_name}
+            </Typography>
+          </Grid>
+          <Divider></Divider>
+          <Grid
+            item
+            sx={{ marginTop: 1, marginBottom: 1 }}
+            direction="column"
+            container
+          >
+            <Grid
+              direction="row"
+              container
+              spacing={1}
+              sx={{ paddingLeft: 1, paddingRight: 1, justifyContent: "center" }}
+            >
+              {getLinesElem(station.lines)}
+            </Grid>
+          </Grid>
+        </Grid>
       ),
+    });
+  };
+
+  spin = () => {
+    /* repeatedly displaynewstation and gradually stops */
+    let spins = 250;
+    let easeInIntervals = [];
+    for (let i = 0; i < spins / 2; i++) {
+      easeInIntervals.push(easeIn(i / (spins / 2)));
+    }
+    let easeOutIntervals = [];
+    for (let i = 0; i < spins / 2; i++) {
+      easeOutIntervals.push(easeOut(0.5 + i / (spins / 2)));
+    }
+    let intervals = easeInIntervals.concat(easeOutIntervals);
+    console.log(intervals);
+
+    intervals.forEach((interval, i) => {
+      setTimeout(this.displayNewStation, interval * 125);
     });
   };
 }
@@ -81,8 +124,24 @@ function getLinesElem(lines: string[]) {
   const linesElem = lines.map((line) => {
     const lineData = mtrLines.find((l) => l["zh-name"] === line);
     return (
-      <div>
-        <div
+      <Grid item>
+        <Paper
+          sx={{
+            backgroundColor: lineData?.color || "white",
+            padding: 0.5,
+            paddingTop: 1.2,
+            color: "white",
+            minWidth: "12ex",
+          }}
+        >
+          <Typography className="mtr-sung" variant="h6" sx={{ lineHeight: 1 }}>
+            {lineData?.["zh-name"] || ""}
+          </Typography>
+          <Typography className="mtr-eng" variant="subtitle2">
+            {lineData?.["en-name"] || ""}
+          </Typography>
+        </Paper>
+        {/* <div
           style={{
             display: "inline-block",
             width: "1em",
@@ -90,9 +149,25 @@ function getLinesElem(lines: string[]) {
             backgroundColor: lineData?.color || "white",
           }}
         ></div>
-        <span>{lineData?.["zh-name"] || ""}</span>
-      </div>
+        <span>{lineData?.["zh-name"] || ""}</span> */}
+      </Grid>
     );
   });
   return linesElem;
 }
+
+const easeIn = (t: number) => {
+  return 2 * t * t;
+};
+const easeOut = (t: number) => {
+  return 2 * t * (1 - t) + 0.5;
+};
+
+const a = [];
+for (let i = 0; i < 100; i++) {
+  a.push(easeOut(i / 100));
+}
+for (let i = 0; i < 100; i++) {
+  a.push(easeIn(i / 100));
+}
+console.log(a);
