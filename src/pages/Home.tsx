@@ -81,8 +81,8 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
             aria-controls="panel3bh-content"
             id="panel3bh-header"
           >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>Other</Typography>
-            <Typography sx={{ color: "text.secondary" }}>Tools</Typography>
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>Tools</Typography>
+            <Typography sx={{ color: "text.secondary" }}>Some other useful tools!</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <ProjectLink

@@ -59,16 +59,16 @@ export default class ProjectLink extends React.Component<
             </Grid>
             <Grid item xs={9} sm container>
               <Grid item xs container direction="column" spacing={1}>
-                <Grid item xs>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <h4>{this.props.title}</h4>
-                  </div>
+                <Grid
+                  item
+                  xs
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div>{this.props.title}</div>
                 </Grid>
               </Grid>
             </Grid>
