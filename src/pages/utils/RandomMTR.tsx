@@ -100,6 +100,10 @@ export default class RandomMTR extends React.Component<
     };
   }
 
+  componentDidMount(): void {
+    this.saveFilteredStations();
+  }
+
   public render() {
     const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const filterName = event.target.name;
@@ -200,7 +204,7 @@ export default class RandomMTR extends React.Component<
   }
 
   displayNewStation = () => {
-    const station = getRandomMtrStation();
+    const station = getRandomMtrStation(this.state.filteredStations);
     this.setState({
       station: station,
       stationDisp: (
@@ -274,12 +278,13 @@ export default class RandomMTR extends React.Component<
   };
 }
 
-function getRandomMtrStation() {
+function getRandomMtrStation(stations_set: MtrStation[] = mtrStations) {
   // mtr-stations.json is a file containing all the MTR stations in Hong Kong.
   // format is {"zh-name":string, "en-name":string, "lines": string[]}[]
 
-  const randomIndex = Math.floor(Math.random() * mtrStations.length);
-  const randomStation = mtrStations[randomIndex];
+  const randomIndex = Math.floor(Math.random() * stations_set.length);
+  const randomStation = stations_set[randomIndex];
+  console.log(stations_set.length);
   return randomStation;
 }
 
