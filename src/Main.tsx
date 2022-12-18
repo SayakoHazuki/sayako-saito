@@ -18,9 +18,9 @@ const Main = () => {
       <Route path="/random/mtr" element={<RandomMTR />}></Route>
       <Route
         path="/utils/random-mtr"
-        element={<Navigate to="/random/mtr" replace></Navigate>}
+        element={<Navigate to="/random/mtr" replace />}
       ></Route>
-      <Route path="*" element={<Home />}></Route>
+      <Route path="*" element={<Navigate to="/" replace />}></Route>
     </Routes>
   );
 };
