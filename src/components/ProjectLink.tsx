@@ -14,9 +14,9 @@ const Img = styled("img")({
 });
 
 export interface IProjectLinkProps {
-    url: string,
-    imageUrl: string,
-    title: string,
+  url: string;
+  imageUrl: string;
+  title: string;
 }
 
 export interface IProjectLinkState {}
@@ -38,25 +38,37 @@ export default class ProjectLink extends React.Component<
           sx={{
             p: 2,
             margin: "auto",
+            marginBottom: "1em",
             maxWidth: 500,
             flexGrow: 1,
             backgroundColor: (theme) =>
               theme.palette.mode === "dark" ? "#1A2027" : "#fff",
           }}
         >
-          <Grid container direction="row" spacing={2}>
-            <Grid item xs={3}>
-              <Img
-                alt={this.props.title}
-                src={this.props.imageUrl}
-              />
+          <Grid container direction="row" spacing={1}>
+            <Grid
+              item
+              xs={3}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Img alt={this.props.title} src={this.props.imageUrl} />
             </Grid>
             <Grid item xs={9} sm container>
-              <Grid item xs container direction="column" spacing={2}>
+              <Grid item xs container direction="column" spacing={1}>
                 <Grid item xs>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    {this.props.title}
-                  </Typography>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <h4>{this.props.title}</h4>
+                  </div>
                 </Grid>
               </Grid>
             </Grid>

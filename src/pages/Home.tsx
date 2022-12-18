@@ -72,6 +72,27 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
             ></ProjectLink>
           </AccordionDetails>
         </Accordion>
+        <Accordion
+          expanded={this.state.expanded === "panel3"}
+          onChange={this.handleChange("panel3")}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3bh-content"
+            id="panel3bh-header"
+          >
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>Other</Typography>
+            <Typography sx={{ color: "text.secondary" }}>Tools</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <ProjectLink
+              title="QR Code Generator"
+              url="/utils/qrcode"
+              imageUrl="/static/images/thumbnails/qrcode.png"
+            ></ProjectLink>
+          </AccordionDetails>
+        </Accordion>
+
         {/* <Accordion
           expanded={this.state.expanded === "panel3"}
           onChange={this.handleChange("panel3")}
