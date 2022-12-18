@@ -8,6 +8,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Home from "./pages/Home";
+import RandomNumber from "./pages/utils/RandomNumber";
 
 const Main = () => {
   return (
@@ -16,6 +17,7 @@ const Main = () => {
       {/* The Switch decides which component to show based on the current URL.*/}
       <Route path="/" element={<Home />}></Route>
       <Route path="/random/mtr" element={<RandomMTR />}></Route>
+      <Route path="/random/number" element={<RandomNumber />}></Route>
       <Route
         path="/utils/random-mtr"
         element={<Navigate to="/random/mtr" replace />}

@@ -18,7 +18,6 @@ import "../../fonts/myriad.css";
 import mtrLines from "../../data/mtr-lines.json";
 
 import mtrStations from "../../data/mtr-stations.json";
-import { throws } from "assert";
 
 const easeIn = (t: number) => {
   return 2 * t * t;

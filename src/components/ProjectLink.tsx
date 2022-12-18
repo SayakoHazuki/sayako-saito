@@ -47,7 +47,7 @@ export default class ProjectLink extends React.Component<
           <Grid container direction="row" spacing={2}>
             <Grid item xs={3}>
               <Img
-                alt="complex"
+                alt={this.props.title}
                 src={this.props.imageUrl}
               />
             </Grid>

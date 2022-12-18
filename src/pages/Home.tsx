@@ -42,9 +42,7 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-                Nothing here :/
-            </Typography>
+            <Typography>Nothing here :/</Typography>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -66,6 +64,11 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
               title="Random MTR Station Generator"
               url="/random/mtr"
               imageUrl="/static/images/thumbnails/random-mtr.png"
+            ></ProjectLink>
+            <ProjectLink
+              title="Random Number Generator"
+              url="/random/number"
+              imageUrl="/static/images/thumbnails/random-number.png"
             ></ProjectLink>
           </AccordionDetails>
         </Accordion>
