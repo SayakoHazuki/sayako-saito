@@ -1,6 +1,15 @@
-import { Card, Divider, Typography } from "@mui/material";
+import {
+  Card,
+  Checkbox,
+  Divider,
+  FormControlLabel,
+  FormGroup,
+  Typography,
+} from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+
 import * as React from "react";
 
 import "./RandomMTR.css";
@@ -9,6 +18,58 @@ import "../../fonts/myriad.css";
 import mtrLines from "../../data/mtr-lines.json";
 
 import mtrStations from "../../data/mtr-stations.json";
+import { throws } from "assert";
+
+const easeIn = (t: number) => {
+  return 2 * t * t;
+};
+const easeOut = (t: number) => {
+  return 2 * t * (1 - t) + 0.5;
+};
+
+// Code for testing easeIn and easeOut
+//
+// const a = [];
+// for (let i = 0; i < 100; i++) {
+//   a.push(easeOut(i / 100));
+// }
+// for (let i = 0; i < 100; i++) {
+//   a.push(easeIn(i / 100));
+// }
+// console.log(a);
+
+const defaultFilters = {
+  noAEL: {
+    description: "排除只能透過機場快線抵達的地鐵站",
+    description2: "(機場、博覽館)",
+    apply: (s: MtrStation) => !["機場", "博覽館"].includes(s.zh_name),
+  },
+  noPort: {
+    description: "排除設置於口岸的地鐵站",
+    description2: "(羅湖、落馬洲)",
+    apply: (s: MtrStation) => !["羅湖", "落馬洲"].includes(s.zh_name),
+  },
+  noNear: {
+    description: "排除接近學校的地鐵站",
+    description2: "(火炭、沙田、第一城)",
+    apply: (s: MtrStation) => !["火炭", "沙田", "第一城"].includes(s.zh_name),
+  },
+  noShatinDist: {
+    description: "排除沙田市中心附近的地鐵站",
+    description2: "(沙田、顯徑、大圍、車公廟、沙田圍、第一城、石門、火炭)",
+    apply: (s: MtrStation) =>
+      ![
+        "沙田",
+        "顯徑",
+        "大圍",
+        "車公廟",
+        "沙田圍",
+        "第一城",
+        "石門",
+        "火炭",
+      ].includes(s.zh_name),
+  },
+};
 
 interface MtrStation {
   zh_name: string;
@@ -21,6 +82,8 @@ export interface IRandomMTRProps {}
 export interface IRandomMTRStates {
   station: MtrStation;
   stationDisp: JSX.Element;
+  filteredStations: MtrStation[];
+  enabledFilters: string[];
 }
 
 export default class RandomMTR extends React.Component<
@@ -32,19 +95,106 @@ export default class RandomMTR extends React.Component<
     this.state = {
       station: { zh_name: "", en_name: "", lines: [] },
       stationDisp: <div></div>,
+      filteredStations: mtrStations,
+      enabledFilters: ["noAEL", "noPort", "noNear", "noShatinDist"],
     };
   }
 
   public render() {
+    const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const filterName = event.target.name;
+      const checked = event.target.checked;
+      console.log(filterName, checked);
+      const callback = () => {
+        console.log(this.state.enabledFilters);
+        this.saveFilteredStations();
+      };
+      if (checked) {
+        this.setState(
+          {
+            enabledFilters: [...this.state.enabledFilters, filterName],
+          },
+          callback
+        );
+      } else {
+        this.setState(
+          {
+            enabledFilters: this.state.enabledFilters.filter(
+              (f) => f !== filterName
+            ),
+          },
+          callback
+        );
+      }
+    };
+
     return (
       <div>
         <h1>Random MTR Station Generator</h1>
         <p>Currently betaaaaaaa :D</p>
-        <button onClick={this.spin}>Generate</button>
+        <Button variant="contained" onClick={this.spin}>
+          Generate
+        </Button>
+        {/* <button onClick={this.spin}>Generate</button> */}
 
-        <Card>
+        <Card sx={{ marginTop: 2, marginBottom: 2 }}>
           <div>{this.state.stationDisp}</div>
         </Card>
+
+        <Divider></Divider>
+        <h2>Options</h2>
+        <h3>Filters</h3>
+
+        <FormGroup>
+          {Object.keys(defaultFilters).map((key) => {
+            return (
+              // <div>
+              //   <input type="checkbox" id={key} name={key} value={key} />
+              //   <label htmlFor={key}>
+              //     <Typography variant="body1">
+              //       {
+              //         defaultFilters[key as keyof typeof defaultFilters]
+              //           ?.description
+              //       }
+              //     </Typography>
+              //     <Typography variant="body2">
+              //       {
+              //         defaultFilters[key as keyof typeof defaultFilters]
+              //           ?.description2
+              //       }
+              //     </Typography>
+              //   </label>
+              // </div>
+              <FormControlLabel
+                sx={{ marginBottom: 0.75 }}
+                control={
+                  <Checkbox
+                    defaultChecked
+                    name={key}
+                    color="primary"
+                    onChange={handleFilterChange}
+                  />
+                }
+                label={
+                  <div style={{ textAlign: "left" }}>
+                    <Typography variant="body1">
+                      {
+                        defaultFilters[key as keyof typeof defaultFilters]
+                          ?.description
+                      }
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: "#808080" }}>
+                      {
+                        defaultFilters[key as keyof typeof defaultFilters]
+                          ?.description2
+                      }
+                    </Typography>
+                  </div>
+                }
+              />
+            );
+          })}
+        </FormGroup>
       </div>
     );
   }
@@ -96,11 +246,31 @@ export default class RandomMTR extends React.Component<
       easeOutIntervals.push(easeOut(0.5 + i / (spins / 2)));
     }
     let intervals = easeInIntervals.concat(easeOutIntervals);
-    console.log(intervals);
+    // console.log(intervals);
 
     intervals.forEach((interval, i) => {
       setTimeout(this.displayNewStation, interval * 125);
     });
+  };
+
+  saveFilteredStations = () => {
+    const enabledFilters = Object.keys(defaultFilters)
+      .filter((f) => {
+        return this.state.enabledFilters.includes(f);
+      })
+      .map((f) => {
+        return defaultFilters[f as keyof typeof defaultFilters];
+      });
+
+    const filteredStations = mtrStations.filter((s) => {
+      // filter using the apply() function in enabledFilters (array of filters)
+      return enabledFilters.every((f) => f.apply(s));
+    });
+    console.log(
+      enabledFilters.map((f) => f.description),
+      filteredStations.length
+    );
+    this.setState({ filteredStations: filteredStations });
   };
 }
 
@@ -110,11 +280,7 @@ function getRandomMtrStation() {
 
   const randomIndex = Math.floor(Math.random() * mtrStations.length);
   const randomStation = mtrStations[randomIndex];
-  return {
-    zh_name: randomStation["zh-name"],
-    en_name: randomStation["en-name"],
-    lines: randomStation.lines,
-  };
+  return randomStation;
 }
 
 function getLinesElem(lines: string[]) {
@@ -122,7 +288,7 @@ function getLinesElem(lines: string[]) {
   // return element containing: a div of color, next to it the zh-name.
 
   const linesElem = lines.map((line) => {
-    const lineData = mtrLines.find((l) => l["zh-name"] === line);
+    const lineData = mtrLines.find((l) => l.zh_name === line);
     return (
       <Grid item>
         <Paper
@@ -135,10 +301,10 @@ function getLinesElem(lines: string[]) {
           }}
         >
           <Typography className="mtr-sung" variant="h6" sx={{ lineHeight: 1 }}>
-            {lineData?.["zh-name"] || ""}
+            {lineData?.zh_name || ""}
           </Typography>
           <Typography className="mtr-eng" variant="subtitle2">
-            {lineData?.["en-name"] || ""}
+            {lineData?.en_name || ""}
           </Typography>
         </Paper>
         {/* <div
@@ -149,25 +315,9 @@ function getLinesElem(lines: string[]) {
             backgroundColor: lineData?.color || "white",
           }}
         ></div>
-        <span>{lineData?.["zh-name"] || ""}</span> */}
+        <span>{lineData?..zh_name || ""}</span> */}
       </Grid>
     );
   });
   return linesElem;
 }
-
-const easeIn = (t: number) => {
-  return 2 * t * t;
-};
-const easeOut = (t: number) => {
-  return 2 * t * (1 - t) + 0.5;
-};
-
-const a = [];
-for (let i = 0; i < 100; i++) {
-  a.push(easeOut(i / 100));
-}
-for (let i = 0; i < 100; i++) {
-  a.push(easeIn(i / 100));
-}
-console.log(a);

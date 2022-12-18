@@ -13,7 +13,11 @@ const Img = styled("img")({
   maxHeight: "100%",
 });
 
-export interface IProjectLinkProps {}
+export interface IProjectLinkProps {
+    url: string,
+    imageUrl: string,
+    title: string,
+}
 
 export interface IProjectLinkState {}
 
@@ -29,7 +33,7 @@ export default class ProjectLink extends React.Component<
 
   public render() {
     return (
-      <Link to="/random/mtr" style={{ textDecoration: "none" }}>
+      <Link to={this.props.url} style={{ textDecoration: "none" }}>
         <Paper
           sx={{
             p: 2,
@@ -44,14 +48,14 @@ export default class ProjectLink extends React.Component<
             <Grid item xs={3}>
               <Img
                 alt="complex"
-                src="/static/images/thumbnails/random-mtr.png"
+                src={this.props.imageUrl}
               />
             </Grid>
             <Grid item xs={9} sm container>
               <Grid item xs container direction="column" spacing={2}>
                 <Grid item xs>
                   <Typography gutterBottom variant="subtitle1" component="div">
-                    Random MTR Station Generator
+                    {this.props.title}
                   </Typography>
                 </Grid>
               </Grid>

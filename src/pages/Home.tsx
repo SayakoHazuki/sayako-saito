@@ -36,9 +36,7 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>
-              Pinned
-            </Typography>
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>Pinned</Typography>
             <Typography sx={{ color: "text.secondary" }}>
               Pinned projects
             </Typography>
@@ -65,7 +63,11 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <ProjectLink></ProjectLink>
+            <ProjectLink
+              title="Random MTR Station Generator"
+              url="/random/mtr"
+              imageUrl="/static/images/thumbnails/random-mtr.png"
+            ></ProjectLink>
           </AccordionDetails>
         </Accordion>
         {/* <Accordion
