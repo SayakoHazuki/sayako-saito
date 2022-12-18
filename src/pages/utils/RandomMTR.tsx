@@ -73,7 +73,12 @@ const defaultFilters = {
     description: "排除為主題樂園而設的地鐵站",
     description2: "(海洋公園、迪士尼)",
     apply: (s: MtrStation) => !["海洋公園", "迪士尼"].includes(s.zh_name),
-  }
+  },
+  noRacecourse: {
+    description: "排除馬場站",
+    description2: "",
+    apply: (s: MtrStation) => !["馬場"].includes(s.zh_name),
+  },
 };
 
 interface MtrStation {
@@ -101,7 +106,14 @@ export default class RandomMTR extends React.Component<
       station: { zh_name: "", en_name: "", lines: [] },
       stationDisp: <div></div>,
       filteredStations: mtrStations,
-      enabledFilters: ["noAEL", "noPort", "noNear", "noShatinDist", "noThemePark"],
+      enabledFilters: [
+        "noAEL",
+        "noPort",
+        "noNear",
+        "noShatinDist",
+        "noThemePark",
+        "noRacecourse",
+      ],
     };
   }
 
@@ -140,7 +152,7 @@ export default class RandomMTR extends React.Component<
     return (
       <div>
         <h1>Random MTR Station Generator</h1>
-        <p>Currently betaaaaaaa :D</p>
+        <p>Have a nice day! :D</p>
         <Button variant="contained" onClick={this.spin}>
           Generate
         </Button>

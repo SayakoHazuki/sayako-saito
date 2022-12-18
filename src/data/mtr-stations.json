@@ -13,7 +13,7 @@
     "lines": ["東鐵綫", "觀塘綫"]
   },
   { "zh_name": "大圍", "en_name": "Tai Wai", "lines": ["東鐵綫", "屯馬綫"] },
-  { "zh_name": "沙田", "en_name": "Shatin", "lines": ["東鐵綫"] },
+  { "zh_name": "沙田", "en_name": "Sha Tin", "lines": ["東鐵綫"] },
   { "zh_name": "火炭", "en_name": "Fo Tan", "lines": ["東鐵綫"] },
   { "zh_name": "大學", "en_name": "University", "lines": ["東鐵綫"] },
   { "zh_name": "大埔墟", "en_name": "Tai Po Market", "lines": ["東鐵綫"] },
