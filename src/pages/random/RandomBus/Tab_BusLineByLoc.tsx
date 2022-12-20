@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Button, Card, Divider, Grid, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  Divider,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import busStops from "../../../data/bus-stops.json";
 
 const busStopsList = busStops.data as BusStopData[];
@@ -46,6 +53,9 @@ export interface IBusLineByLocState {
   result: BusLineStop;
   stopList: BusStopData[];
   nearestStop: BusStopData;
+  options: {
+    maxEta: number;
+  };
 }
 
 export default class BusLineByLoc extends React.Component<
@@ -72,6 +82,9 @@ export default class BusLineByLoc extends React.Component<
         name_en: "",
         name_tc: "",
         name_sc: "",
+      },
+      options: {
+        maxEta: 15,
       },
     };
   }
@@ -142,7 +155,8 @@ export default class BusLineByLoc extends React.Component<
         });
         data = data.filter(
           (i: BusStopETAData) =>
-            parseInt(i.eta) > 0 && parseInt(i.eta) < 60 * 15
+            parseInt(i.eta) > 0 &&
+            parseInt(i.eta) < 60 * this.state.options.maxEta
         );
         const pickedLine = data[Math.floor(Math.random() * data.length)];
         if (!pickedLine) {
@@ -191,6 +205,20 @@ export default class BusLineByLoc extends React.Component<
   public render() {
     return (
       <div>
+        <TextField
+          sx={{ marginBottom: "1em" }}
+          variant="outlined"
+          label="最大等待時間"
+          type="number"
+          value={this.state.options.maxEta}
+          onChange={(e) => {
+            this.setState({
+              options: {
+                maxEta: parseInt(e.target.value),
+              },
+            });
+          }}
+        />
         <Button variant="contained" onClick={() => this.generateResult(4)}>
           Generate
         </Button>
