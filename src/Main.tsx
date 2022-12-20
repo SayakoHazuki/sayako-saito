@@ -1,15 +1,16 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import RandomMTR from "./pages/random/RandomMTR";
-
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+
+import RandomMTR from "./pages/random/RandomMTR";
 import Home from "./pages/Home";
 import RandomNumber from "./pages/random/RandomNumber";
 import QrCodeGen from "./pages/tools/QrCode";
+import RandomBus from "./pages/random/RandomBus/Main";
 
 const Main = () => {
   return (
@@ -19,6 +20,7 @@ const Main = () => {
       <Route path="/" element={<Home />} />
       <Route path="/random/mtr" element={<RandomMTR />} />
       <Route path="/random/number" element={<RandomNumber />} />
+      <Route path="/random/bus" element={<RandomBus />} />
       <Route path="/utils/qrcode" element={<QrCodeGen />} />
       <Route
         path="/utils/random-mtr"
