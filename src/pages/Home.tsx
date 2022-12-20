@@ -70,7 +70,13 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
               url="/random/number"
               imageUrl="/static/images/thumbnails/random-number.png"
             ></ProjectLink>
+            <ProjectLink
+              title="Random Bus Generator"
+              url="/random/bus"
+              imageUrl="/static/images/thumbnails/random-bus.png"
+            ></ProjectLink>
           </AccordionDetails>
+
         </Accordion>
         <Accordion
           expanded={this.state.expanded === "panel3"}

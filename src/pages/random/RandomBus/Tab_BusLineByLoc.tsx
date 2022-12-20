@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Divider, Grid, Typography } from "@mui/material";
+import { Button, Card, Divider, Grid, Typography } from "@mui/material";
 import busStops from "../../../data/bus-stops.json";
 
 const busStopsList = busStops.data as BusStopData[];
@@ -45,6 +45,7 @@ export interface IBusLineByLocState {
   long: number;
   result: BusLineStop;
   stopList: BusStopData[];
+  nearestStop: BusStopData;
 }
 
 export default class BusLineByLoc extends React.Component<
@@ -64,10 +65,18 @@ export default class BusLineByLoc extends React.Component<
         stop: "",
       },
       stopList: [],
+      nearestStop: {
+        stop: "",
+        lat: "",
+        long: "",
+        name_en: "",
+        name_tc: "",
+        name_sc: "",
+      },
     };
   }
 
-  public componentDidMount() {
+  generateResult = (maxRetries: number) => {
     const savePosition = (position: any) => {
       console.log(position.coords.latitude);
       console.log(position.coords.longitude);
@@ -99,8 +108,23 @@ export default class BusLineByLoc extends React.Component<
           return distanceA - distanceB;
         })
         .slice(0, 10);
+      this.setState({ nearestStop: stopList[0] });
 
       const pickedStop = stopList[Math.floor(Math.random() * stopList.length)];
+      if (!pickedStop) {
+        if (maxRetries > 0) {
+          return this.generateResult(maxRetries - 1);
+        } else {
+          this.setState({
+            result: {
+              line: "N/A",
+              destination: "",
+              eta: "No bus stops nearby found.",
+              stop: "",
+            },
+          });
+        }
+      }
 
       // get bus line info at stop
       const stopId = pickedStop.stop;
@@ -121,6 +145,20 @@ export default class BusLineByLoc extends React.Component<
             parseInt(i.eta) > 0 && parseInt(i.eta) < 60 * 15
         );
         const pickedLine = data[Math.floor(Math.random() * data.length)];
+        if (!pickedLine) {
+          if (maxRetries > 0) {
+            return this.generateResult(maxRetries - 1);
+          } else {
+            return this.setState({
+              result: {
+                line: "N/A",
+                destination: "",
+                eta: "No operating bus lines found.",
+                stop: "",
+              },
+            });
+          }
+        }
         this.setState({
           result: {
             line: pickedLine.route,
@@ -148,13 +186,17 @@ export default class BusLineByLoc extends React.Component<
     } else {
       console.log("Geolocation is not supported by this browser.");
     }
-  }
+  };
 
   public render() {
     return (
       <div>
-        <p>Latitude: {this.state.lat}</p>
-        <p>Longitude: {this.state.long}</p>
+        <Button variant="contained" onClick={() => this.generateResult(4)}>
+          Generate
+        </Button>
+        <div style={{ marginTop: "1.5em", marginBottom: "0.75em" }}>
+          最接近之巴士站: {this.state.nearestStop.name_tc}
+        </div>
         <Card sx={{ marginTop: 2, marginBottom: 2 }}>
           <Grid direction="column" container>
             <Grid
@@ -189,19 +231,27 @@ export default class BusLineByLoc extends React.Component<
                 }}
               >
                 <Grid item>
-                  <Typography variant="h5">{this.state.result.stop}</Typography>
+                  <Typography variant="h5">
+                    {this.state.result.stop ? "@" : ""} {this.state.result.stop}
+                  </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h5">{this.state.result.eta}</Typography>
+                  <Divider orientation="vertical" />
+                </Grid>
+                <Grid item>
+                  <Typography
+                    sx={{
+                      color: "#000087",
+                    }}
+                    variant="h5"
+                  >
+                    {this.state.result.eta}
+                  </Typography>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Card>
-        <p>Line: {this.state.result.line}</p>
-        <p>Destination: {this.state.result.destination}</p>
-        <p>ETA: {this.state.result.eta}</p>
-        <p>Stop: {this.state.result.stop}</p>
       </div>
     );
   }

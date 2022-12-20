@@ -2,7 +2,6 @@ import { Card, Tab, Tabs, Box, Typography } from "@mui/material";
 
 import * as React from "react";
 import BusLineByLoc from "./Tab_BusLineByLoc";
-import BusStopByLine from "./Tab_BusStopByLine";
 import BusStopByLoc from "./Tab_BusStopByLoc";
 
 const easeIn = (t: number) => {
@@ -84,18 +83,14 @@ export default class RandomBus extends React.Component<
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="Bus Line (by location)" {...a11yProps(0)} />
-            <Tab label="Bus Stop (by line)" {...a11yProps(1)} />
-            <Tab label="Bus Stop (by location)" {...a11yProps(2)} />
+            <Tab label="附近巴士線" {...a11yProps(0)} />
+            <Tab label="附近巴士站" {...a11yProps(1)} />
           </Tabs>
         </Box>
         <TabPanel value={this.state.value} index={0}>
           <BusLineByLoc></BusLineByLoc>
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
-          <BusStopByLine></BusStopByLine>
-        </TabPanel>
-        <TabPanel value={this.state.value} index={2}>
           <BusStopByLoc></BusStopByLoc>
         </TabPanel>
       </>
