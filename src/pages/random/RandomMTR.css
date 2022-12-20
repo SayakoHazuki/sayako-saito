@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK&display=swap');
 
 .mtr-sung,
 .mtr-sung *:not(.font-exclude) {
-  font-family: "Noto Serif TC", serif !important;
+  font-family: "Noto Serif TC", "Noto Serif HK", serif !important;
 }
 
 .mtr-eng,
@@ -10,6 +11,7 @@
   font-family: "Myriad Pro Regular", sans-serif !important;
 }
 
-.sb, .sb *:not(.font-exclude) {
-    font-weight: 600 !important;
+.sb,
+.sb *:not(.font-exclude) {
+  font-weight: 600 !important;
 }
